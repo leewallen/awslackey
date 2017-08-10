@@ -32,7 +32,7 @@ module.exports = function(robot) {
 			message = message + "State         : " + instance.State.Name + "\n";
 			message = message + "DeviceName    : " + instance.BlockDeviceMappings[0].DeviceName + "\n";
 
-			message = message + "EBS AttachTime: " + instance.BlockDeviceMappings[0].Ebs.AttacheTime + "\n";
+			message = message + "EBS AttachTime: " + instance.BlockDeviceMappings[0].Ebs.AttachTime + "\n";
 			message = message + "EBS DoT       : " + instance.BlockDeviceMappings[0].Ebs.DeleteOnTermination + "\n";
 			message = message + "EBS Status    : " + instance.BlockDeviceMappings[0].Ebs.Status + "\n";
 			message = message + "EBS Volume ID : " + instance.BlockDeviceMappings[0].Ebs.VolumeId + "\n";
