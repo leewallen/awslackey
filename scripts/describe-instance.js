@@ -8,8 +8,8 @@ var config  = require(__dirname + '/../config.json'),
     ec2     = new aws.EC2(config);
 
 module.exports = function(robot) {
-    robot.respond(/describe instance ([-\a-zA-Z0-9]+)/i, function(msg) {
-        var instance = msg.match[1].toLowerCase(),
+    robot.respond(/(describe instance|descinst) ([-\a-zA-Z0-9]+)/i, function(msg) {
+        var instance = msg.match[2].toLowerCase(),
             message  = "";
 
         return new promise(function(resolve, reject) {
