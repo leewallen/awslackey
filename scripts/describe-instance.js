@@ -1,5 +1,8 @@
 // Commands:
 //   hubot describe instance [instance_id] - Shows instance details.
+//
+// https://raw.githubusercontent.com/andrewpuch/hubot_slack_example/master/describe-instance.js
+//----------------------------------------------------------------------------------------------
 
 var config  = require(__dirname + '/../config.json'),
 	promise = require('bluebird'),
