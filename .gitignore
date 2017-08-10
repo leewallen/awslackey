@@ -1,2 +1,4 @@
 /node_modules
 .hubot_history
+test-bot.sh
+config.json
