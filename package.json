@@ -5,6 +5,7 @@
   "author": "awslackey@slackey.com",
   "description": "Interact with AWS",
   "dependencies": {
+    "aws-sdk": "^2.95.0",
     "hubot": "^2.19.0",
     "hubot-diagnostics": "0.0.2",
     "hubot-google-images": "^0.2.7",
