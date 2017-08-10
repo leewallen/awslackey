@@ -17,7 +17,7 @@ module.exports = function(robot) {
                 if(err) {
                     reject(err);
                 }
-
+                //console.log("Success", JSON.stringify(instance));
                 resolve(instance);
             });
         }).then(function(instance) {
@@ -29,6 +29,13 @@ module.exports = function(robot) {
             message = message + "Public DNS    : " + instance.PublicDnsName + "\n";
             message = message + "Private DNS   : " + instance.PrivateDnsName + "\n";
 			message = message + "Launch time   : " + instance.LaunchTime + "\n";
+			message = message + "State         : " + instance.State.Name + "\n";
+			message = message + "DeviceName    : " + instance.BlockDeviceMappings[0].DeviceName + "\n";
+
+			message = message + "EBS AttachTime: " + instance.BlockDeviceMappings[0].Ebs.AttacheTime + "\n";
+			message = message + "EBS DoT       : " + instance.BlockDeviceMappings[0].Ebs.DeleteOnTermination + "\n";
+			message = message + "EBS Status    : " + instance.BlockDeviceMappings[0].Ebs.Status + "\n";
+			message = message + "EBS Volume ID : " + instance.BlockDeviceMappings[0].Ebs.VolumeId + "\n";
             
             msg.send("```" + message + "```");
         }).catch(function(e) {
