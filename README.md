@@ -11,8 +11,9 @@ A slack bot with commands for interrogating your AWS environment
 
 ### Add a bot to your Slack team
 
+## Run the bot locally
 
-## Create a config.json file:
+### Create a config.json file:
 Create a config.json file that includes the region, access key, and secret key, for the role your bot uses for interacting with AWS via the SDK. Example for US West (Oregon):
 
 { 
@@ -21,7 +22,7 @@ Create a config.json file that includes the region, access key, and secret key, 
     "secretAccessKey" : "YOUR_SECRET_ACCESS_KEY" 
 }
 
-## Start the bot by passing the hubot token that was created when you were first setting up the bot in slack:
+### Start the bot by passing the hubot token that was created when you were first setting up the bot in slack:
  HUBOT_SLACK_TOKEN=xoxb-YOUR-TOKEN-HERE ./bin/hubot --adapter slack
 
 
