@@ -50,7 +50,6 @@ module.exports = function(robot) {
             for (var i = 0; i < arrayLength; i++) {
                 message = message + "Tag Key       : " + instance.Tags[i].Key + "\n";
                 message = message + "Tag Value     : " + instance.Tags[i].Value + "\n";
-                
             }
 			            
             msg.send("```" + message + "```");
