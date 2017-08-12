@@ -1,5 +1,5 @@
 // Commands:
-//   hubot subscribe to topic [topic ARN] [email|email-json] [email address] - starts instance.
+//   hubot subscribe to topic [topic ARN] [email address] - starts instance.
 //
 
 var config  = require(__dirname + '/../config.json'),
@@ -10,11 +10,10 @@ var config  = require(__dirname + '/../config.json'),
 module.exports = function(robot) {
 
 
-    robot.respond(/(subscribe to topic email|subtopic email)\s([\:\-a-zA-Z0-9]+)\s(email|email-json)\s([a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*)/i, function(msg) {
+    robot.respond(/(subscribe to topic email|subtopic email)\s([\:\-a-zA-Z0-9]+)\s([a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*)/i, function(msg) {
         var topicarn = msg.match[2].toLowerCase(),
-            protocol = msg.match[3],
-            endpoint = msg.match[4],
-            message  = "";
+            endpoint = msg.match[3],
+            protocol = "email";
 
 	    var arrayLength = msg.match.length;
 	    for (var i = 0; i < arrayLength; i++) {
@@ -22,7 +21,8 @@ module.exports = function(robot) {
 	    }
 
         return new promise(function(resolve, reject) {
-            sns.subscribe({ Protocol: protocol, TopicArn: topicarn, Endpoint: endpoint}, function(err, data) {
+            var params = {Protocol: protocol, TopicArn: topicarn, Endpoint: endpoint};
+            sns.subscribe(params, function(err, data) {
                 if(err) {
                     reject(err);
                 }
