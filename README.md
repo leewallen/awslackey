@@ -10,6 +10,9 @@ A slack bot with commands for interrogating your AWS environment
  brew install redis
 
 ### Add a bot to your Slack team
+Visit this link to add a new bot to your slack team: https://my.slack.com/services/new/bot
+
+If you belong to multiple slack teams, then be sure to select the appropriate team from the drop down box in the upper right hand corner.
 
 ## Run the bot locally
 
