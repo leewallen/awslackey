@@ -28,8 +28,10 @@ Create a config.json file that includes the region, access key, and secret key, 
 ```
 
 ### Start the bot by passing the hubot token that was created when you were first setting up the bot in slack:
- HUBOT_SLACK_TOKEN=xoxb-YOUR-TOKEN-HERE ./bin/hubot --adapter slack
 
+```script
+ HUBOT_SLACK_TOKEN=xoxb-YOUR-TOKEN-HERE ./bin/hubot --adapter slack
+```
 
 
 
