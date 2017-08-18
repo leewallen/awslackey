@@ -19,11 +19,13 @@ If you belong to multiple slack teams, then be sure to select the appropriate te
 ### Create a config.json file:
 Create a config.json file that includes the region, access key, and secret key, for the role your bot uses for interacting with AWS via the SDK. Example for US West (Oregon):
 
+```json
 { 
     "region" : "us-west-2", 
     "accessKeyId" : "YOUR_ACCESS_KEY", 
     "secretAccessKey" : "YOUR_SECRET_ACCESS_KEY" 
 }
+```
 
 ### Start the bot by passing the hubot token that was created when you were first setting up the bot in slack:
  HUBOT_SLACK_TOKEN=xoxb-YOUR-TOKEN-HERE ./bin/hubot --adapter slack
