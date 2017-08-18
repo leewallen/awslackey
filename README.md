@@ -4,10 +4,16 @@ A slack bot with commands for interrogating your AWS environment
 ## Initial setup
 
 ### To run the slack bot, make sure you have coffee-script installed:
+
+```script
  npm install -g coffee-script 
+```
 
 ### Install redis for redis-brain usage:
+
+```script
  brew install redis
+```
 
 ### Add a bot to your Slack team
 Visit this link to add a new bot to your slack team: https://my.slack.com/services/new/bot
