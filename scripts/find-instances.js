@@ -8,7 +8,7 @@ var config  = require(__dirname + '/../config.json'),
     ec2     = new aws.EC2(config);
 
 module.exports = function(robot) {
-    robot.respond(/(find instance|findinst) ([-\a-zA-Z0-9]+) ([-\a-zA-Z0-9]+)/i, function(msg) {
+    robot.respond(/(find instance|findinst) ([-\a-zA-Z0-9]+) (.*)/i, function(msg) {
         var tagname = msg.match[2],
             tagvalue = msg.match[3],
             message  = "";
@@ -27,29 +27,31 @@ module.exports = function(robot) {
                 if(err) {
                     reject(err);
                 }
-                
                 resolve(data);
             });
         }).then(function(data) {
             
             if (data.Reservations.length > 0 && data.Reservations[0].Instances.length > 0) {
-                var instanceArrayLength = data.Reservations[0].Instances.length;
-                if (instanceArrayLength > 0) {
-                    message = message + "Instance IDs : \n";
-                    var tagValueTest = new RegExp(tagvalue);
-                    for (var i = 0; i < instanceArrayLength; i++) {
-                        var instance = data.Reservations[0].Instances[i];
+                var reservationArrayLength = data.Reservations.length;
 
-                        var arrayLength = instance.Tags.length;
-                        for (var j = 0; j < arrayLength; j++) {
-                            if (tagValueTest.test(instance.Tags[j].Value)) {
-                                message = message + "\t" + instance.InstanceId + "\n";        
+                for (var k = 0; k < reservationArrayLength; k++) {
+                    var instanceArrayLength = data.Reservations[0].Instances.length;
+                    if (instanceArrayLength > 0) {
+                        var tagValueTest = new RegExp(tagvalue);
+                        for (var i = 0; i < instanceArrayLength; i++) {
+                            var instance = data.Reservations[k].Instances[i];
+                            var arrayLength = instance.Tags.length;
+                            for (var j = 0; j < arrayLength; j++) {
+                                if (tagValueTest.test(instance.Tags[j].Value)) {
+                                    message = message + instance.Tags[j].Value + " : " + instance.InstanceId + " : " + instance.State.Name + "\n";        
+                                } 
                             }
                         }
+                    } else {
+                        message = "Unable to find any instances.";
                     }
-                } else {
-                    message = "Unable to find any instances.";
                 }
+
             } else {
                 message = "Unable to find any instances.";
             }
