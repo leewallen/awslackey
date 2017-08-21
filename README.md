@@ -39,5 +39,27 @@ Create a config.json file that includes the region, access key, and secret key, 
  HUBOT_SLACK_TOKEN=xoxb-YOUR-TOKEN-HERE ./bin/hubot --adapter slack
 ```
 
+## Sample Command Usage:
+
+### findinst | find instance
+Find EC2 instances using the "findinst" or "find instance" command by passing a tag name and a regex value for the tag value:
+
+```script
+ findinst Name aws
+```
+### descinst | describe instance
+List information about a specific EC2 instance using the "descinst" or "describe instance" command by passing the EC2 instance ID:
+
+```script
+ descinst i-ABCDEF0123456789
+```
+The name, state, EBS volume info, tags, etc will be returned for any valid EC2 instance ID.
 
 
+### startinst | start instance
+Start a stopped EC2 instance using the "startinst" or "start instance" command by passing the EC2 instance ID:
+
+```script
+ startinst i-ABCDEF0123456789
+```
+The previous and current state of the EC2 instance will be returned.
