@@ -36,7 +36,7 @@ module.exports = function(robot) {
                 for (var k = 0; k < reservationArrayLength; k++) {
                     var instanceArrayLength = data.Reservations[0].Instances.length;
                     if (instanceArrayLength > 0) {
-                        var tagValueTest = new RegExp(tagvalue);
+                        var tagValueTest = new RegExp(tagvalue, 'i');
                         for (var i = 0; i < instanceArrayLength; i++) {
                             var instance = data.Reservations[k].Instances[i];
                             var arrayLength = instance.Tags.length;
