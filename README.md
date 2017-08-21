@@ -42,11 +42,19 @@ Create a config.json file that includes the region, access key, and secret key, 
 ## Sample Command Usage:
 
 ### findinst | find instance
-Find EC2 instances using the "findinst" or "find instance" command by passing a tag name and a regex value for the tag value:
+Find EC2 instances using the "findinst" or "find instance" command by passing a tag name and a regex value for the tag value. A response listing the EC2 instance IDs and the current state will be returned. 
+
+If you have two instances with "aws" in the name, with one instance stopped and the other instance running, then a response like the following will be returned:
 
 ```script
  findinst Name aws
 ```
+
+```script
+ my-aws-instance-1 : i-0a1b2c3d4e5f : stopped
+ my-aws-instance-2 : i-9a8b7c6d5e4f : running
+```
+
 ### descinst | describe instance
 List information about a specific EC2 instance using the "descinst" or "describe instance" command by passing the EC2 instance ID:
 
