@@ -20,7 +20,6 @@ module.exports = function(robot) {
                 }
             ]
         };
-        console.log(JSON.stringify(params));
 
         return new promise(function(resolve, reject) {
             ec2.describeInstances(params, function(err, data) {
@@ -55,7 +54,11 @@ module.exports = function(robot) {
             } else {
                 message = "Unable to find any instances.";
             }
-			            
+			
+            if (message == "") {
+                message = "Unable to find any instances matching : " + tagvalue;
+            }
+
             msg.send("```" + message + "```");
         }).catch(function(e) {
             msg.send("```" + e + "```");
