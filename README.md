@@ -59,7 +59,7 @@ If you have two instances with "aws" in the name, with one instance stopped and 
 List information about a specific EC2 instance using the "descinst" or "describe instance" command by passing the EC2 instance ID:
 
 ```script
- descinst i-ABCDEF0123456789
+ descinst i-0a1b2c3d4e5f
 ```
 The name, state, EBS volume info, tags, etc will be returned for any valid EC2 instance ID.
 
