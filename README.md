@@ -79,9 +79,15 @@ _**startinst|start instance**_
 Start a stopped EC2 instance using the "startinst" or "start instance" command by passing the EC2 instance ID:
 
 ```script
- startinst i-ABCDEF0123456789
+ startinst i-a1b2c3d4e5f6
 ```
 The previous and current state of the EC2 instance will be returned.
+
+```script
+ Instance ID   : i-a1b2c3d4e5f6
+ Previous state: stopped
+ Current state : pending
+```
 
 ### stopinst
 _**stopinst|stop instance**_
@@ -89,6 +95,13 @@ _**stopinst|stop instance**_
 Stop a running EC2 instance using the "stopinst" or "stop instance" command by passing the EC2 instance ID:
 
 ```script
- stopinst i-ABCDEF0123456789
+ stopinst i-a1b2c3d4e5f6
 ```
 The previous and current state of the EC2 instance will be returned.
+
+
+```script
+ Instance ID   : i-a1b2c3d4e5f6
+ Previous state: running
+ Current state : stopping
+```
