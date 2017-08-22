@@ -44,8 +44,8 @@ Create a config.json file that includes the region, access key, and secret key, 
 * [descinst](#descinst)
 * [startinst](#startinst)
 * [stopinst](#stopinst)
-* [create topic](#create topic)
-* [delete topic](#delete topic)
+* [crtopic](#crtopic)
+* [deltopic](#deltopic)
 
 ### findinst
 _**findinst | find instance**_
@@ -106,7 +106,7 @@ The previous and current state of the EC2 instance will be returned.
  Current state : stopping
 ```
 
-### create topic
+### crtopic
 _**crtopic | create topic**_
 
 Create an SNS topic using the "create topic" or "crtopic" command by passing the topic name:
@@ -120,7 +120,7 @@ The reply will be the SNS ARN:
  TopicArn : arn:aws:sns:us-west-2:012345678901:my-sns-topic
 ```
 
-### delete topic
+### deltopic
 _**deltopic | delete topic**_
 
 Delete an SNS topic using the "delete topic" or "deltopic" command by passing the topic ARN:
