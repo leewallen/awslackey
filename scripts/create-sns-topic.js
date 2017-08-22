@@ -8,7 +8,7 @@ var config  = require(__dirname + '/../config.json'),
     sns     = new aws.SNS(config);
 
 module.exports = function(robot) {
-    robot.respond(/(create topic) ([-\a-zA-Z0-9]+)/i, function(msg) {
+    robot.respond(/(create topic|crtopic) ([-\a-zA-Z0-9]+)/i, function(msg) {
             var topic = msg.match[2].toLowerCase(),
             message  = "";
 

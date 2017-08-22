@@ -17,12 +17,12 @@ module.exports = function(robot) {
                 if(err) {
                     reject(err);
                 }
-                console.log("Success", JSON.stringify(data));
                 resolve(data);
             });
         }).then(function(data) {
-            
-            message =  data;
+            console.log("Success", JSON.stringify(data));
+                
+            message = message + "Request ID : " + data.ResponseMetadata.RequestId;
             
             msg.send("```" + message + "```");
         }).catch(function(e) {
