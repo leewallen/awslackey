@@ -99,7 +99,6 @@ Stop a running EC2 instance using the "stopinst" or "stop instance" command by p
 ```
 The previous and current state of the EC2 instance will be returned.
 
-
 ```script
  Instance ID   : i-a1b2c3d4e5f6
  Previous state: running
