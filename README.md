@@ -40,10 +40,10 @@ Create a config.json file that includes the region, access key, and secret key, 
 ```
 
 ## Sample Command Usage:
-- [findinst](#findinst)
-- [descinst](#descinst)
-- [startinst](#startinst)
-- [stopinst](#stopinst)
+* [findinst](#findinst)
+* [descinst](#descinst)
+* [startinst](#startinst)
+* [stopinst](#stopinst)
 
 
 ### findinst
