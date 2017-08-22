@@ -44,8 +44,8 @@ Create a config.json file that includes the region, access key, and secret key, 
 * [descinst](#descinst)
 * [startinst](#startinst)
 * [stopinst](#stopinst)
-* [create topic](#createtopic)
-
+* [create topic](#create topic)
+* [delete topic](#delete topic)
 
 ### findinst
 _**findinst | find instance**_
