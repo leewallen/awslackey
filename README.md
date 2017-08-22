@@ -44,6 +44,7 @@ Create a config.json file that includes the region, access key, and secret key, 
 * [descinst](#descinst)
 * [startinst](#startinst)
 * [stopinst](#stopinst)
+* [create topic](#createtopic)
 
 
 ### findinst
@@ -104,3 +105,32 @@ The previous and current state of the EC2 instance will be returned.
  Previous state: running
  Current state : stopping
 ```
+
+### create topic
+_**crtopic | create topic**_
+
+Create an SNS topic using the "create topic" or "crtopic" command by passing the topic name:
+
+```script
+ create topic my-sns-topic
+```
+The reply will be the SNS ARN:
+
+```script
+ TopicArn : arn:aws:sns:us-west-2:012345678901:my-sns-topic
+```
+
+### delete topic
+_**deltopic | delete topic**_
+
+Delete an SNS topic using the "delete topic" or "deltopic" command by passing the topic ARN:
+
+```script
+ delete topic arn:aws:sns:us-west-2:012345678901:my-sns-topic
+```
+The reply will be the request ID:
+
+```script
+ Request ID : a1b2c3d4-a1b2-c3d4-e5f6-a1b2c3d4e5f6
+```
+
