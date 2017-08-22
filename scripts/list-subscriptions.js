@@ -10,7 +10,7 @@ var config  = require(__dirname + '/../config.json'),
 module.exports = function(robot) {
 
 
-    robot.respond(/(list subscriptions|list subs)/i, function(msg) {
+    robot.respond(/(list subscriptions|listsubs|subscriptions)/i, function(msg) {
         //var nextToken = msg.match[2];
 
         return new promise(function(resolve, reject) {
@@ -24,16 +24,26 @@ module.exports = function(robot) {
                 resolve(data);
             });
         }).then(function(data) {
-            var message;
+            var message = "";
             var arrayLength = data.Subscriptions.length;
-            for (var i = 0; i < arrayLength; i++) {
-                message = message + "SubscriptionArn : " + data.Subscriptions[i].SubscriptionArn + "\n";
-                message = message + "Owner           : " + data.Subscriptions[i].Owner + "\n";
-                message = message + "Protocol        : " + data.Subscriptions[i].Protocol + "\n";
-                message = message + "Endpoint        : " + data.Subscriptions[i].Endpoint + "\n";
-                message = message + "TopicArn        : " + data.Subscriptions[i].TopicArn + "\n";
-            }
-            message = message + "NextToken       : " + data.NextToken + "\n";
+            var nextToken = null;
+
+// have script call a function with a callback that receives all the output
+//            do {
+                for (var i = 0; i < arrayLength; i++) {
+                    if (i == 0) message = "Subscriptions:\n";
+                    else message = message + "\n";
+                    message = message + "ARN       : " + data.Subscriptions[i].SubscriptionArn + "\n";
+                    message = message + "Owner     : " + data.Subscriptions[i].Owner + "\n";
+                    message = message + "Protocol  : " + data.Subscriptions[i].Protocol + "\n";
+                    message = message + "Endpoint  : " + data.Subscriptions[i].Endpoint + "\n";
+                    message = message + "TopicArn  : " + data.Subscriptions[i].TopicArn + "\n";
+                }
+                nextToken = data.NextToken;
+                console.log("nextToken : " + nextToken);
+//                if (nextToken == null) console.log("nextToken is null");
+
+//            } while (nextToken != null);
 
             msg.send("```" + message + "```");
         }).catch(function(e) {
@@ -41,3 +51,4 @@ module.exports = function(robot) {
         });  
     });
 };
+

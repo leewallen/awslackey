@@ -1,5 +1,5 @@
 // Commands:
-//   hubot subscribe to topic [topic ARN] [email address] - starts instance.
+//   hubot subscribe to topic [topic ARN] [email address] - subscribes to an SNS topic with an email address.
 //
 
 var config  = require(__dirname + '/../config.json'),
@@ -10,7 +10,7 @@ var config  = require(__dirname + '/../config.json'),
 module.exports = function(robot) {
 
 
-    robot.respond(/(subscribe to topic email|subtopic email)\s([\:\-a-zA-Z0-9]+)\s([a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*)/i, function(msg) {
+    robot.respond(/(subscribe to topic email|subtopic email|subtopic-email)\s([\:\-a-zA-Z0-9]+)\s([a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*)/i, function(msg) {
         var topicarn = msg.match[2].toLowerCase(),
             endpoint = msg.match[3],
             protocol = "email";
